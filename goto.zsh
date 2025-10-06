@@ -13,7 +13,16 @@ function j() {
 	fi
 
 	local path=$(grep "$name=" $GOTO_FILE | cut -d "=" -f 2)
-	cd $path
+	if [[ -z $path ]]; then
+		echo "Bookmark does not exist"
+	else
+		cd $path
+	fi
+}
+
+
+function _zsh_jump_bookmark_exists() {
+	echo hi
 }
 
 
@@ -44,10 +53,13 @@ function jrm() {
 	fi
 
 	grep -v "$name=" $GOTO_FILE > $GOTO_FILE.tmp
-	if [[ $(diff $GOTO_FILE $GOTO_FILE.tmp) -eq 1 ]]; then
+
+	diff $GOTO_FILE $GOTO_FILE.tmp > /dev/null
+	if [ $? -eq 1 ]; then
 		/bin/mv $GOTO_FILE.tmp $GOTO_FILE
 		echo "Removed bookmark: $name"
 	else
+		rm $GOTO_FILE.tmp
 		echo "Bookmark does not exist"
 	fi
 }
@@ -57,3 +69,8 @@ function jls() {
 }
 
 alias b="cd -"
+
+# Future features:
+# - Tab completion
+# - Better logging
+# - Thorough scenarios
