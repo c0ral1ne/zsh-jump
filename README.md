@@ -37,3 +37,6 @@ b                    Go back to the previous directory (cd -)
 - Fuzzy / partial tab completion
 - Overwrite prompt
 - Colorized `jls`
+- Clear all bookmarks
+- `jrm` multiple at once
+
