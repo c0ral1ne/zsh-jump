@@ -5,7 +5,7 @@
 # with tab completion support for quick navigation.
 #
 # Commands:
-#   j <name>          - Jump to a bookmarked directory
+#   j <name>          - Jump to a bookmarked directory (supports fuzzy path navigation)
 #   ja <name> [path]  - Add current directory (or specified path) as a bookmark
 #   jrm <name>        - Remove a bookmark
 #   jls               - List all bookmarks
@@ -32,7 +32,12 @@
 GOTO_FILE="$HOME/.goto_bookmarks"
 
 function j() {
-	local name=$1
+	local name=${1%%/*}
+	if [[ "$1" == */* ]]; then
+		fuzz_path="/${1#*/}"
+	else
+		fuzz_path=""
+	fi
 
 	[[ -f $GOTO_FILE ]] || touch $GOTO_FILE
 
@@ -45,7 +50,7 @@ function j() {
 	if [[ -z $jpath ]]; then
 		echo "Bookmark does not exist"
 	else
-		cd $jpath
+		cd "${jpath}${fuzz_path}"
 	fi
 }
 
