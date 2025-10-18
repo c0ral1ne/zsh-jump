@@ -26,7 +26,7 @@ Command              Description
 -------------------  -----------------------------------------------
 ja <name> [path]     Add a bookmark (defaults to current directory
                      if [path] is omitted)
-j <name>             Jump to a bookmarked directory
+j <name>             Jump to a bookmarked directory (supports fuzzy path resolution)
 jrm <name>           Remove a bookmark
 jls                  List all bookmarks
 b                    Go back to the previous directory (cd -)
