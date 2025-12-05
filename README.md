@@ -3,7 +3,7 @@
 
 **zsh-jump** lets you bookmark and instantly jump between frequently used directories — lightweight, fast, and fully integrated with tab completion.
 
-### 🚀 Features
+### Features
 - Add, jump to, list, and remove directory bookmarks  
 - Tab completion for bookmark names  
 - Works seamlessly with **Oh My Zsh** or standalone Zsh setups  
