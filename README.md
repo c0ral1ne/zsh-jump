@@ -1,15 +1,11 @@
 # zsh-jump 🐸
-### A simple directory bookmarking plugin for Zsh
-
 **zsh-jump** lets you bookmark and instantly jump between frequently used directories — lightweight, fast, and fully integrated with tab completion.
 
 ### Features
 - Add, jump to, list, and remove directory bookmarks  
 - Tab completion for bookmark names  
-- Works seamlessly with **Oh My Zsh** or standalone Zsh setups  
 
-## 📦 Installation
-### **Oh My Zsh**
+## Installation (oh-my-zsh)
 1. Clone the repository into your custom plugins directory:
 ```
 git clone https://github.com/c0ral1ne/zsh-jump.git ~/.oh-my-zsh/custom/plugins/zsh-jump
